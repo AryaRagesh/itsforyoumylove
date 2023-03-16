@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+  <header class="header-area header-sticky background-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo" style="color:red;font-family:cursive">
+                       A <img src="{% static 'assets/images/ll.png' %}" style="width:60px;height:60px;" alt="SnapX Photography Template">
+                        R
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="{% url 'myapp:index'  %} " class="active">Home</a></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">Back To Memories</a>
+                            <ul class="sub-menu">
+                                {% for cat in links %}
+                                <li><a href="{% url 'myapp:allyear' cat.slug %}">{{cat.name}}</a></li>
+<!--                                <li><a href="contest-details.html">Single Contest</a></li>-->
+                                {% endfor %}
+                            </ul>
+                        </li>
+<!--                        <li><a href="categories.html">Categories</a></li>-->
+                        <li><a href="{% url 'myapp:go' %}" >♥ U</a></li>
+                    </ul>
+
+                    <a class="menu-trigger">
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+</body>
+</html>
